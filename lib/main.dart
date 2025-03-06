@@ -53,7 +53,7 @@ class _MyAppState extends State<MyApp> {
       'Question text': 'Who\'s is your favourite Role Model?',
       'answers': [
         {'text': 'Andrew Carnegie', 'score': 10},
-        {'text': 'Mary Hill', 'score': 20},
+        {'text': 'Abraham Lincoln', 'score': 20},
         {'text': 'Napoleon Hill', 'score': 30},
         {'text': 'Dale Carnegie', 'score': 40},
       ],
