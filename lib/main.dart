@@ -64,7 +64,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(title: Text('My first Flutter app')),
+        appBar: AppBar(title: Text('My first Flutter app project')),
         body:
             _questionIndex < _questions.length
                 ? Quiz(
