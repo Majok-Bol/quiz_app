@@ -13,7 +13,7 @@ class Question extends StatelessWidget {
         questionText,
         style: TextStyle(
           fontSize: 34,
-          backgroundColor: CupertinoColors.systemMint,
+          // backgroundColor: CupertinoColors.activeOrange,
         ),
         textAlign: TextAlign.center,
       ),
