@@ -1,54 +1,54 @@
 import 'package:flutter/material.dart';
+import './question.dart';
+import './answer.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
-    return MyAppState();
+    return _MyAppState();
   }
 }
 
-class MyAppState extends State<MyApp> {
-  var questionIndex = 0;
-  void answerQuestion() {
+class _MyAppState extends State<MyApp> {
+  var _questionIndex = 0;
+  void _answerQuestion() {
     setState(() {
-      questionIndex = questionIndex + 1;
+      _questionIndex = _questionIndex + 1;
     });
 
-    print(questionIndex);
+    print(_questionIndex);
   }
 
   var questions = [
-    'What is your favorite colour?',
-    'What is your favorite animal?',
+    {
+      'Question text': 'What is your favorite color?',
+      'answers': ['red', 'blue', 'white', 'green'],
+    },
+    {
+      'Question text': 'What is your favorite Animal?',
+      'answers': ['dog', 'cat', 'horse', 'donkey'],
+    },
+    {
+      'Question text': 'Who\'s is your favorite teacher?',
+      'answers': ['Maxwell', 'Daniel', 'John', 'Greenwood'],
+    },
   ];
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(title: Text(questions[questionIndex])),
+        appBar: AppBar(title: Text('My first Flutter app')),
         body: Column(
           children: <Widget>[
-            Text('Questions'),
-            ElevatedButton(
-              onPressed: answerQuestion,
-              child: Text('answer one'),
-            ),
-            ElevatedButton(
-              onPressed: () => print("answer two chosen"),
-              child: Text('answer two'),
-            ),
-            ElevatedButton(
-              onPressed: () => print("answer three chosen"),
-              child: Text('answer three'),
-            ),
-            ElevatedButton(
-              onPressed: () => print("answer four chosen"),
-              child: Text('answer four'),
-            ),
+            Question(questions[_questionIndex]['Question text']),
+            ...(questions[_questionIndex]['answers'] as List<String>).map((
+              answer,
+            ) {
+              return Answer(_answerQuestion, answer);
+            }),
           ],
         ),
       ),
