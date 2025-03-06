@@ -22,8 +22,18 @@ class _MyAppState extends State<MyApp> {
   }
 
   var questions = [
-    'What is your favorite colour?',
-    'What is your favorite animal?',
+    {
+      'Question text': 'What is your favorite color?',
+      'answers': ['red', 'blue', 'white', 'green'],
+    },
+    {
+      'Question text': 'What is your favorite Animal?',
+      'answers': ['dog', 'cat', 'horse', 'donkey'],
+    },
+    {
+      'Question text': 'Who\'s is your favorite teacher?',
+      'answers': ['Maxwell', 'Daniel', 'John', 'Greenwood'],
+    },
   ];
 
   @override
@@ -33,11 +43,12 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(title: Text('My first Flutter app')),
         body: Column(
           children: <Widget>[
-            Question(questions[_questionIndex]),
-            Answer(_answerQuestion),
-            Answer(_answerQuestion),
-            Answer(_answerQuestion),
-            Answer(_answerQuestion),
+            Question(questions[_questionIndex]['Question text']),
+            ...(questions[_questionIndex]['answers'] as List<String>).map((
+              answer,
+            ) {
+              return Answer(_answerQuestion, answer);
+            }),
           ],
         ),
       ),
