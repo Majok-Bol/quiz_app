@@ -41,16 +41,18 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(title: Text('My first Flutter app')),
-        body: Column(
-          children: <Widget>[
-            Question(questions[_questionIndex]['Question text']),
-            ...(questions[_questionIndex]['answers'] as List<String>).map((
-              answer,
-            ) {
-              return Answer(_answerQuestion, answer);
-            }),
-          ],
-        ),
+        body:
+            _questionIndex < questions.length
+                ? Column(
+                  children: [
+                    Question(questions[_questionIndex]['Question text']),
+                    ...(questions[_questionIndex]['answers'] as List<String>)
+                        .map((answer) {
+                          return Answer(_answerQuestion, answer);
+                        }),
+                  ],
+                )
+                : Center(child: Text('You did it!')),
       ),
     );
   }
