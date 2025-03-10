@@ -6,15 +6,18 @@ class Result extends StatelessWidget {
   Result(this.resultScore, this.resetHandler);
   String get resultPhrase {
     var resultText = 'You did it!';
-    if (resultScore >= 50) {
-      resultText = 'Your score: Excellent ';
-    } else if (resultScore <= 20 && resultScore <= 40) {
+    if (resultScore >= 100) {
+      resultText = 'Your score: Excellent!';
+    } else if (resultScore >= 80) {
       resultText = 'Very good!';
-    } else if (resultScore >= 10 && resultScore <= 19) {
-      resultText = 'Your score: Average';
+    } else if (resultScore >= 70) {
+      resultText = 'Good!';
+    } else if (resultScore >= 60) {
+      resultText = 'Average!';
     } else {
-      resultText = 'You score:Very low';
+      resultText = 'Your score: Failed!';
     }
+
     return resultText;
   }
 

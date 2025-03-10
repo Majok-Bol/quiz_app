@@ -50,7 +50,7 @@ class _MyAppState extends State<MyApp> {
       ],
     },
     {
-      'Question text': 'Who\'s is your favourite Role Model?',
+      'Question text': 'Who\'s your favourite Role Model?',
       'answers': [
         {'text': 'Andrew Carnegie', 'score': 10},
         {'text': 'Abraham Lincoln', 'score': 20},
@@ -64,7 +64,20 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(title: Text('My first Flutter app project')),
+        appBar: AppBar(
+          title: Text(
+            'Quiz app',
+            style: TextStyle(
+              fontSize: 24, // Adjust font size
+              color:
+                  Colors
+                      .deepOrangeAccent, // Change to blue or use Colors.purple for violet
+              fontWeight: FontWeight.bold, // Optional: Makes the text bold
+            ),
+          ),
+          centerTitle: true, // Centers the title
+        ),
+
         body:
             _questionIndex < _questions.length
                 ? Quiz(
